@@ -5,6 +5,6 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - prodcution # expecify the address pool name
+  - prodcution # specify the address pool name
   interfaces:
   - enp7s0 #worker node interface
