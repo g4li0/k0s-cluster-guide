@@ -1,0 +1,10 @@
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: production # is recommended to use the same name as the address pool
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - prodcution # expecify the address pool name
+  interfaces:
+  - enp7s0 #worker node interface

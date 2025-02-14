@@ -76,3 +76,17 @@ Guide to deploy an 1 controller + 1 worker kubernetes cluster using k0s
     # kube-system   metrics-server-6fbcd86f7b-5frtn            1/1     Running   0          3m51s
 ```
 9. Done! Now you have a lightweight kubernetes cluster configured
+
+## Adding Load Balancer: MetalLB
+- add metalLB required configuration to the cluster
+```bash
+    kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/refs/heads/main/config/manifests/metallb-native.yaml
+```
+- add address pool
+```bash
+    kubectl apply -f adressPool.yaml
+```
+- add layer 2 mode
+```bash
+    kubectl apply -f l2Advertisement.yaml
+```

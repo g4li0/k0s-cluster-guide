@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: test
+  name: test
+spec:
+  containers:
+  - image: nginx:latest
+    name: test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/address-pool: production # specify the address pool name
+  labels:
+    run: test
+  name: test
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: test
+  type: LoadBalancer
